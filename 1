@@ -1,0 +1,169 @@
+1 WAP TO CHECK WHETHER A GIVEN ISARMSTRONG OR NOT
+  #include <stdio.h>
+#include <math.h>
+
+int main() {
+    int num, sum = 0, temp, digits;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    for (temp = num, digits = log10(num) + 1; temp; temp /= 10)
+        sum += pow(temp % 10, digits);
+    printf("%d is %san Armstrong number.\n", num, sum == num ? "" : "not ");
+    return 0;
+}
+2 WAP TO READ TWO INTEGERS AND PRINT THEIR HCF (HIGHEST COMMON FACTOR)
+  #include <stdio.h>
+
+int main() {
+    int a, b;
+    printf("Enter two integers: ");
+    scanf("%d %d", &a, &b);
+    while (b) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    printf("The HCF is %d.\n", a);
+    return 0;
+}
+3 WAP TO SUBTRACT TWO INTEGERS WITHOUT USING MINUS(-) OPERATOR 
+  #include <stdio.h>
+
+int main() {
+    int a, b;
+    printf("Enter two integers: ");
+    scanf("%d %d", &a, &b);
+    int result = a + (~b + 1); // Using bitwise NOT and addition to subtract
+    printf("The result of subtraction is %d.\n", result);
+    return 0;}
+#include <stdio.h>
+
+int main() {
+    int a, b;
+    printf("Enter two integers: ");
+    scanf("%d %d", &a, &b);
+    int result = a + (~b + 1); // Using bitwise NOT and addition to subtract
+    printf("The result of subtraction is %d.\n", result);
+    return 0;
+}
+4 WAP TO ACCEPT two integers numbera and swap them using 4 different method in c language
+#include <stdio.h>
+
+int main() {
+    int a, b;
+    printf("Enter two integers: ");
+    scanf("%d %d", &a, &b);
+
+    // Method 1: Using a temporary variable
+    int temp = a;
+    a = b;
+    b = temp;
+    printf("After swapping (Method 1): a = %d, b = %d\n", a, b);
+
+    // Reset values for next method
+    a ^= b; b ^= a; a ^= b;
+    printf("After swapping (Method 2): a = %d, b = %d\n", a, b);
+
+    // Reset values for next method
+    a = a + b; b = a - b; a = a - b;
+    printf("After swapping (Method 3): a = %d, b = %d\n", a, b);
+
+    // Reset values for next method
+    a = a * b; b = a / b; a = a / b;
+    printf("After swapping (Method 4): a = %d, b = %d\n", a, b);
+
+    return 0;
+}
+5 WAP to check whether number is Perfect Number or not.
+(To check perfect number, we have to find all divisors of that number and find their sum, if
+sum of divisors is equal to number it means number is Perfect Number
+#include <stdio.h>
+
+int is_perfect_number(int n) {
+    int sum = 0;
+    for (int i = 1; i < n; i++) {
+        if (n % i == 0) sum += i;
+    }
+    return sum == n;
+}
+
+int main() {
+    int number;
+    printf("Enter a number: ");
+    scanf("%d", &number);
+    printf("%d is %sPerfect Number.\n", number, is_perfect_number(number) ? "" : "not a ");
+    return 0;
+}
+6 #include <stdio.h>
+
+int main() {
+    int x, y;
+    printf("Enter the coordinates (x y): ");
+    scanf("%d %d", &x, &y);
+
+    if (x > 0 && y > 0) printf("Quadrant I\n");
+    else if (x < 0 && y > 0) printf("Quadrant II\n");
+    else if (x < 0 && y < 0) printf("Quadrant III\n");
+    else if (x > 0 && y < 0) printf("Quadrant IV\n");
+    else if (x == 0 && y != 0) printf("On Y-axis\n");
+    else if (y == 0 && x != 
+7 WAP for Binary to Decimal conversion & Decimal to Binary for a given number as per
+user’s choice
+ #include <stdio.h>
+
+int main() {
+    int x, y;
+    printf("Enter the coordinates (x y): ");
+    scanf("%d %d", &x, &y);
+
+    if (x > 0 && y > 0) printf("Quadrant I\n");
+    else if (x < 0 && y > 0) printf("Quadrant II\n");
+    else if (x < 0 && y < 0) printf("Quadrant III\n");
+    else if (x > 0 && y < 0) printf("Quadrant IV\n");
+    else if (x == 0 && y != 0) printf("On Y-axis\n");
+    else if (y == 0 && x != 0) printf("On X-axis\n");
+    else printf("At Origin\n");
+
+    return 0;
+}
+8
+  #include <stdio.h>
+
+int main() {
+    int n = 5;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= i; j++) {
+            printf("%d", (i + j) % 2);
+        }
+9 
+  #include <stdio.h>
+
+int main() {
+    int n = 5;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= i; j++) printf("%d", (i + j) % 2);
+        printf(" ");
+        for (int j = 1; j <= i; j++) printf("%d", (i + j) % 2);
+        printf("\n");
+    }
+    return 0;
+}
+10
+  #include <stdio.h>
+
+int main() {
+    int n = 5, coef = 1;
+
+    for (int i = 0; i < n; i++) {
+        for (int space = 1; space < n - i; space++) printf(" ");
+        for (int j = 0; j <= i; j++) {
+            if (j == 0 || i == 0) coef = 1;
+            else coef = coef * (i - j + 1) / j;
+            printf("%d ", coef);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
