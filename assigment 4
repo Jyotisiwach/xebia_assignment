@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    char *choices[] = {"Rock", "Paper", "Scissors"};
+    int userChoice, computerChoice;
+
+    // Get user input
+    printf("Enter your choice (0: Rock, 1: Paper, 2: Scissors): ");
+    scanf("%d", &userChoice);
+    if (userChoice < 0 || userChoice > 2) {
+        printf("Invalid choice!\n");
+        return 1;
+    }
+
+    // Generate computer choice
+    srand(time(0));
+    computerChoice = rand() % 100;
+    computerChoice = (computerChoice <= 33) ? 0 : (computerChoice <= 66) ? 1 : 2;
+
+    // Display choices
+    printf("You chose: %s\n", choices[userChoice]);
+    printf("Computer chose: %s\n", choices[computerChoice]);
+
+    // Determine the winner
+    if (userChoice == computerChoice) {
+        printf("It's a draw!\n");
+    } else if ((userChoice == 0 && computerChoice == 2) || 
+               (userChoice == 1 && computerChoice == 0) || 
+               (userChoice == 2 && computerChoice == 1)) {
+        printf("You win!\n");
+    } else {
+        printf("Computer wins!\n");
+    }
+
+    return 0;
+}
