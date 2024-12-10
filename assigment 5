@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char word[] = "hangman"; // The word to guess
+    char display[] = "_______"; // Hidden word
+    char guess;
+    int attempts = 3, correct = 0;
+
+    printf("Welcome to Hangman!\n");
+    while (attempts > 0 && correct < strlen(word)) {
+        printf("Word: %s\n", display);
+        printf("Enter your guess: ");
+        scanf(" %c", &guess);
+
+        int found = 0;
+        for (int i = 0; i < strlen(word); i++) {
+            if (word[i] == guess && display[i] == '_') {
+                display[i] = guess;
+                correct++;
+                found = 1;
+            }
+        }
+
+        if (!found) {
+            attempts--;
+            printf("Wrong guess! Attempts left: %d\n", attempts);
+        } else {
+            printf("Correct guess!\n");
+        }
+    }
+
+    if (correct == strlen(word)) {
+        printf("Congratulations! You saved the man. The word was: %s\n", word);
+    } else {
+        printf("You lost! The man was hanged. The word was: %s\n", word);
+    }
+
+    return 0;
+}
